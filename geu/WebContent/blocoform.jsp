@@ -21,10 +21,19 @@
 			<h1>Inserir Bloco</h1>
 		</div>
 		<form action="blocos" method="post">
-			Nome:<input type="text" name="nome" /><br> Letra:<input
-				type="text" name="letra" /><br> Latitude:<input type="text"
-				name="latitude" /><br> Longitude:<input type="text" name="longitude" /><br>
-			<input type="submit" value="Salvar" />
+			<div class="form-group">
+				Nome: <input type="text" class="form-control" name="nome" />
+			</div>
+			<div class="form-group">
+				Letra: <input type="text" class="form-control" name="letra" />
+			</div>
+			<div class="form-group">
+				Latitude: <input type="text" class="form-control" name="latitude" />
+			</div>
+			<div class="form-group">
+				Longitude: <input type="text" class="form-control" name="longitude" />
+			</div>
+			<input type="submit" class="btn btn-primary" value="Salvar" />
 
 		</form>
 	</div>

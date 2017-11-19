@@ -13,7 +13,6 @@ import br.ucsal.util.Conexao;
 public class BlocoDAO {
 
 	private Conexao conexao;
-
 	
 	public BlocoDAO() {
 		this.conexao = Conexao.getConexao();
@@ -45,8 +44,7 @@ public class BlocoDAO {
 	public void inserir(Bloco bloco) {
 		try {
 			
-			PreparedStatement ps = conexao.getConnection()
-					.prepareStatement("insert into blocos (nome,letra,latitude,longitude) values (?,?,?,?);");
+			PreparedStatement ps = conexao.getConnection().prepareStatement("insert into blocos (nome,letra,latitude,longitude) values (?,?,?,?);");
 			ps.setString(1, bloco.getNome());
 			ps.setString(2, bloco.getLetra());
 			ps.setString(3, bloco.getLatitude());
@@ -83,9 +81,5 @@ public class BlocoDAO {
 	public void close() {
 		conexao.closeConnection();
 	}
-	
-	
-	
-
 
 }
