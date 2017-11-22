@@ -23,7 +23,7 @@ public class Conexao {
 //	user: sa
 //	password:
 	
-	public Conexao() {
+	private Conexao() {
 		try {
 			connection = DriverManager.getConnection("jdbc:hsqldb:mem:.", "sa", "");
 			new LoadTables().creatScherma(connection);
@@ -53,4 +53,5 @@ public class Conexao {
 		}
 	}
 	
+
 }

@@ -7,24 +7,24 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import br.ucsal.geu.model.Tipo;
 import br.ucsal.util.Conexao;
 
 public class TipoDAO {
-	
+
 	private Conexao conexao;
+
 	
 	public TipoDAO() {
 		this.conexao = Conexao.getConexao();
 	}
-	
+
 	public List<Tipo> listar() {
 		Statement stmt;
 		List<Tipo> tipos = new ArrayList<>();
 		try {
 			stmt = conexao.getConnection().createStatement();
-			ResultSet rs = stmt.executeQuery("select id, nome, descricao from tipos;");
+			ResultSet rs = stmt.executeQuery("select id,nome,descricao from tipos;");
 			while(rs.next()) {
 				Tipo t = new Tipo();
 				t.setId(rs.getInt("id"));
@@ -36,12 +36,15 @@ public class TipoDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	
 		return tipos;
 	}
-	
+
 	public void inserir(Tipo tipo) {
 		try {
-			PreparedStatement ps = conexao.getConnection().prepareStatement("insert into tipos (nome, descricao) values (?,?);");
+			
+			PreparedStatement ps = conexao.getConnection()
+					.prepareStatement("insert into tipos (nome,descricao) values (?,?);");
 			ps.setString(1, tipo.getNome());
 			ps.setString(2, tipo.getDescricao());
 			ps.execute();
@@ -49,12 +52,13 @@ public class TipoDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+
 	}
-	
+
 	public Tipo getByID(int id) {
 		Tipo t = null;
 		try {
-			PreparedStatement ps = conexao.getConnection().prepareStatement("select id, nome, descricao from tipos where id=?;");
+			PreparedStatement ps = conexao.getConnection().prepareStatement("select id,nome,descricao from tipos where id=?");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()) {
@@ -63,6 +67,7 @@ public class TipoDAO {
 				t.setNome(rs.getString("nome"));
 				t.setDescricao(rs.getString("descricao"));
 			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -73,4 +78,8 @@ public class TipoDAO {
 		conexao.closeConnection();
 	}
 	
+	
+	
+
+
 }

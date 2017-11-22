@@ -21,13 +21,10 @@
 			<h1>Inserir Tipo</h1>
 		</div>
 		<form action="tipos" method="post">
-			<div class="form-group">
-			Nome:<input type="text" class="form-control" name="nome" />
-			</div>
-			<div class="form-group">
-			Descrição:<input type="text" class="form-control" name="descricao" />
-			</div>
-			<input type="submit" class="btn btn-primary" value="Salvar" />
+			Nome:<input type="text" name="nome" /><br> 
+			Descricao:<input type="text" name="descricao" /><br> 
+			<input type="submit" value="Salvar" />
+
 		</form>
 	</div>
 

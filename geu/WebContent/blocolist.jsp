@@ -18,7 +18,7 @@
 <c:import url="topo.jsp"></c:import>
 <div class="container">
 <div class="page-header">
-<h1> Lista de Blocos </h1>
+<h1> Lista Blocos </h1>
 </div>
 
 <table class="table" >

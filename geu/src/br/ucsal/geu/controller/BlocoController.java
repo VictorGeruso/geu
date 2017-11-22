@@ -22,6 +22,7 @@ public class BlocoController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		String q = request.getParameter("q");
 		if (q != null && q.equals("new")) {
 			request.getRequestDispatcher("blocoform.jsp").forward(request, response);
@@ -35,6 +36,7 @@ public class BlocoController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		String nome = request.getParameter("nome");
 		String letra = request.getParameter("letra");
 		String lat = request.getParameter("latitude");
@@ -45,5 +47,6 @@ public class BlocoController extends HttpServlet {
 
 		request.setAttribute("lista", dao.listar());
 		request.getRequestDispatcher("blocolist.jsp").forward(request, response);
+
 	}
 }

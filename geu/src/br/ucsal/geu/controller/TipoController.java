@@ -22,12 +22,13 @@ public class TipoController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		String q = request.getParameter("q");
 		if (q != null && q.equals("new")) {
 			request.getRequestDispatcher("tipoform.jsp").forward(request, response);
 		} else {
 			TipoDAO dao = new TipoDAO();
-			request.setAttribute("lista2", dao.listar());
+			request.setAttribute("lista", dao.listar());
 			request.getRequestDispatcher("tipolist.jsp").forward(request, response);
 		}
 	}
@@ -35,13 +36,15 @@ public class TipoController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		String nome = request.getParameter("nome");
 		String descricao = request.getParameter("descricao");
 		Tipo tipo = new Tipo(nome, descricao);
 		TipoDAO dao = new TipoDAO();
 		dao.inserir(tipo);
 
-		request.setAttribute("lista2", dao.listar());
+		request.setAttribute("lista", dao.listar());
 		request.getRequestDispatcher("tipolist.jsp").forward(request, response);
+
 	}
 }

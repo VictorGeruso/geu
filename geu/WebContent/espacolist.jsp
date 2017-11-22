@@ -29,7 +29,7 @@
 <th>Tipo</th> 
 </tr>
 
-<c:forEach var="e" items="${lista3}">
+<c:forEach var="e" items="${lista}">
 <tr>
  <td>${e.identificacao}</td>
  <td>${e.andar}</td>

@@ -8,6 +8,9 @@ public class Bloco {
 	private String latitude;
 	private String longitude;	
 	
+
+	
+	
 	public Bloco(String nome, String letra, String latitude, String longitude) {
 		super();
 		this.nome = nome;

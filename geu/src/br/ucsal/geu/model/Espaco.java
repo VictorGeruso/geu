@@ -36,13 +36,7 @@ public class Espaco {
 		this.bloco = bloco;
 	}
 
-	public Tipo getTipo() {
-		return tipo;
-	}
 
-	public void setTipo(Tipo tipo) {
-		this.tipo = tipo;
-	}
 
 	public Integer getId() {
 		return id;
@@ -50,6 +44,14 @@ public class Espaco {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Tipo getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
 	}
 
 

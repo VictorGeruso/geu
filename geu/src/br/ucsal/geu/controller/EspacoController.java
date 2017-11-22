@@ -31,12 +31,12 @@ public class EspacoController extends HttpServlet {
 		if (q != null && q.equals("new")) {
 			BlocoDAO dao = new BlocoDAO();
 			request.setAttribute("lista", dao.listar());
-			TipoDAO dao2 = new TipoDAO();
-			request.setAttribute("lista2", dao2.listar());
+			TipoDAO tipoDao = new TipoDAO();
+			request.setAttribute("listaTipo", tipoDao.listar());
 			request.getRequestDispatcher("espacoform.jsp").forward(request, response);
 		}else {
 			EspacoDAO dao = new EspacoDAO();
-			request.setAttribute("lista3", dao.listar());
+			request.setAttribute("lista", dao.listar());
 			request.getRequestDispatcher("espacolist.jsp").forward(request, response);
 		}
 	}
@@ -54,20 +54,18 @@ public class EspacoController extends HttpServlet {
 		Espaco espaco = new Espaco();
 		espaco.setIdentificacao(identificacao);
 		espaco.setAndar(andar);
-		
 		BlocoDAO blocoDAO = new BlocoDAO();
 		int id = Integer.parseInt(blocoID);
 		Bloco bloco = blocoDAO.getByID(id);
 		espaco.setBloco(bloco);
-		
+
+		int id_tipo = Integer.parseInt(tipoID);
 		TipoDAO tipoDAO = new TipoDAO();
-		int id2 = Integer.parseInt(tipoID);
-		Tipo tipo = tipoDAO.getByID(id2);
+		Tipo tipo = tipoDAO.getByID(id_tipo);
 		espaco.setTipo(tipo);
-		
 		EspacoDAO dao = new EspacoDAO();
 		dao.inserir(espaco);
-		request.setAttribute("lista3", dao.listar());
+		request.setAttribute("lista", dao.listar());
 		request.getRequestDispatcher("espacolist.jsp").forward(request, response);
 
 	}

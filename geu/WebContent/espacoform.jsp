@@ -24,31 +24,25 @@
 </div>
  
 	<form action="espacos" method="post">
-		<div class="form-group">
-			Identificação: <input name="identificacao" class="form-control" type="text" required>
-		</div>
-		<div class="form-group">
-			Andar: <input name="andar" class="form-control" type="text" required>
-		</div>
-		<div class="form-group">
-			Bloco: 
-			<select name="bloco" class="form-control">
-				<option value="" selected>Selecione</option>
-				<c:forEach var="bloco" items="${lista}">
-					<option value="${bloco.id}">${bloco.letra}</option>
-				</c:forEach>
-			</select>
-		</div>
-		<div class="form-group">
-			Tipo: 
-			<Select name="tipo" class="form-control">
-				<option value="" selected>Selecione</option>
-				<c:forEach var="tipo" items="${lista2}">
-					<option value="${tipo.id}">${tipo.nome}</option>
-				</c:forEach>
-			</Select><br>
-		</div>
-		<button type="submit" class="btn btn-primary">Salvar</button>
+		Identificação: <input name="identificacao" type="text" required><br>
+		Andar: <input name="andar" type="text" required><br>
+		Bloco: 
+		<select name="bloco" >
+			<option value="" selected>Selecione</option>
+			<c:forEach var="bloco" items="${lista}">
+				<option value="${bloco.id}">${bloco.letra}</option>
+			</c:forEach>
+		</select>
+		<br>
+		Tipo: 
+		<select name="tipo" >
+			<option value="" selected>Selecione</option>
+			<c:forEach var="tipo" items="${listaTipo}">
+				<option value="${tipo.id}">${tipo.nome}</option>
+			</c:forEach>
+		</select>
+		<br>
+		<button type="submit">Salvar</button>
 	</form>
 
 

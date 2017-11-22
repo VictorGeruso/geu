@@ -18,17 +18,17 @@
 <c:import url="topo.jsp"></c:import>
 <div class="container">
 <div class="page-header">
-<h1> Lista de Tipos </h1>
+<h1> Lista Tipo </h1>
 </div>
 
 <table class="table" >
 <tr>
 <th> Nome </th>
-<th> Descrição </th>
+<th> Descricao </th>
  
 </tr>
 
-<c:forEach var="e" items="${lista2}">
+<c:forEach var="e" items="${lista}">
 <tr>
  <td> ${e.nome} </td>
  <td> ${e.descricao} </td>
